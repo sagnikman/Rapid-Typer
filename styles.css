@@ -1,32 +1,62 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 body {
-    background-color: #6d6d6d ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-
+  background-color: #38393b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
-body, .input-text {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+body,
+.input-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .container {
-    background-color: #4f15ac;
-    padding: 1rem;
-    border-radius: 0.3rem;
-    width: 700px;
-    max-width: 90%;
-    
+  background-color: #d3772c;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  width: 700px;
+  max-width: 90%;
 }
 
 .timer {
-    position: absolute;
-    top: 3rem;
-    font-size: 3rem;
-    color: #4f15ac;
-    font-weight: bold;
+  position: absolute;
+  top: 3rem;
+  font-size: 3rem;
+  color: #d3772c;
+  font-weight: bold;
+}
 
+.random-text { 
+ margin-bottom: 1rem;
+ margin-left: calc(1rem + 2px);
+ margin-right: calc(1rem + 2px);
+}
+
+.input-text {
+  background-color:#d3772c;
+  border: 2px solid #2d056e;
+  outline: none;
+  width : 100%;
+  height: 8 rem;
+  margin: auto;
+  resize: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+}
+
+.input-text:focus {
+  border-color: black;
+}
+
+.correct {
+  color: rgb(9, 255, 0);
+}
+
+.incorrect {
+  color: red;
+  text-decoration: underline;
 }
