@@ -1,8 +1,11 @@
-const RANDOM_WORD_API_URL = "https://random-word-api.herokuapp.com/word?number=2";
+const RANDOM_WORD_API_URL = "https://random-word-api.herokuapp.com/word?number=25";
 
 const randomText = document.getElementById("randomText");
 const inputText = document.getElementById("inputText");
 const timer = document.getElementById("timer");
+
+//Disabling Text Selection
+randomText.unselectable = "on";
 
 inputText.addEventListener("input", ()=> {
     const arrayWords = randomText.querySelectorAll('span')
