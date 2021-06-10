@@ -2,6 +2,7 @@ const RANDOM_WORD_API_URL = "https://random-word-api.herokuapp.com/word?number=2
 
 const randomText = document.getElementById("randomText");
 const inputText = document.getElementById("inputText");
+const timer = document.getElementById("timer");
 
 inputText.addEventListener("input", ()=> {
     const arrayWords = randomText.querySelectorAll('span')
@@ -50,7 +51,18 @@ async function renderNewWords() {
     }
     randomText.removeChild(randomText.lastChild);
     inputText.value = null;
-    
+    startTimer();
+}
+let startTime;
+function startTimer() {
+    timer.innerText=0;
+    startTime = new Date();
+    setInterval(()=>{
+        timer.innerText = getTimerTime()
+    } ,1000);
+}
+function getTimerTime() {
+    return Math.floor((new Date() - startTime) /1000 );
 }
 renderNewWords();
 
