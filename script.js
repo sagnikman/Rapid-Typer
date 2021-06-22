@@ -1,5 +1,5 @@
 const RANDOM_WORD_API_URL =
-  "https://random-word-api.herokuapp.com/word?number=2"
+  "https://random-word-api.herokuapp.com/word?number=7"
 
 const randomText = document.getElementById("randomText")
 const inputText = document.getElementById("inputText")
@@ -17,7 +17,9 @@ let currentTimeScore,
   BestTimeScore = 100000000
 let timerLog = 0,
   intervalValue
-
+let averageGameTime=0,currentTimeScoreSum=0,GameNumber=0,WPM=0,numberOfCharacters=0,CPM=0;
+ 
+  
 //Disabling Text Selection
 randomText.unselectable = "on"
 
@@ -45,14 +47,26 @@ inputText.addEventListener("input", () => {
   })
 
   if (correct) {
+    if(currentTimeScore===0) currentTimeScore=0.5;
+    CPM=parseFloat(numberOfCharacters/parseFloat(currentTimeScore/60));
     renderNewWords()
     timerLog = 0
     clearInterval(intervalValue)
     timer.innerText = 0
+    GameNumber++;
+    
+    currentTimeScoreSum+=currentTimeScore;
+    averageGameTime= parseFloat(currentTimeScoreSum/GameNumber);
+    if(averageGameTime===NaN) averageGameTime=0.5;
+    
     if (currentTimeScore < BestTimeScore) {
       BestTimeScore = currentTimeScore
-      bestTime.innerText = `Best Time: ${BestTimeScore}`
     }
+    WPM=parseFloat(CPM/5);
+    bestTime.innerHTML = `Best Time: <strong>${BestTimeScore}</strong><br>
+    Previous Time: <strong>${currentTimeScore}</strong><br>
+    Average Time: <strong>${averageGameTime.toFixed(2)}</strong><br>
+    WPM: <strong>${WPM.toFixed(2)}</strong><br>`;
   }
 })
 
@@ -63,7 +77,8 @@ function getRandomWords() {
 }
 
 async function renderNewWords() {
-  // console.log("Rendering New Set of Words");
+  
+  numberOfCharacters=0;
   const words = await getRandomWords()
   randomText.innerHTML = ""
   for (const key in words) {
@@ -73,6 +88,7 @@ async function renderNewWords() {
         const characterSpan = document.createElement("span")
         characterSpan.innerText = character
         randomText.appendChild(characterSpan)
+        numberOfCharacters++;
       })
     }
   }

@@ -7,7 +7,7 @@
 
 body {
   background-color: azure;
-  --accent-color: rgb(235, 141, 18);
+  --accent-color: rgb(245, 169, 69);
   --text-color: black;
   display: flex;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
 
 body,
 .input-text {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
   color: var(--text-color);
 }
 
@@ -44,7 +44,7 @@ margin-bottom: 3px;
 	position: absolute;
 }
 .label {
-	background-color: #111;
+	background-color: black;
 	border-radius: 50px;
 	cursor: pointer;
 	display: flex;
@@ -84,6 +84,7 @@ margin-bottom: 3px;
   border-radius: 0.3rem;
   width: 800px;
   max-width: 90%;
+  margin-top: 50px;
 }
 
 
@@ -147,7 +148,7 @@ margin-bottom: 3px;
 }
 
 body.dark {
-	background-color: #131212;
+	background-color: #272626;
   --accent-color: rgb(3, 80, 143);
   --text-color: rgb(255, 255, 255);
 
